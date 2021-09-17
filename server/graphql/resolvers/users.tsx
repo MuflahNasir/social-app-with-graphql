@@ -27,9 +27,8 @@ type IUser = {
     email: String
 }
 
-function generateToken(user: any){
-    console.log(user.username)
-    jwt.sign({
+function generateToken(user: IUser){
+    return jwt.sign({
         id: user.id,
         username: user.username,
         email: user.email
@@ -66,7 +65,6 @@ module.exports = {
             }
 
             const token = generateToken(user)
-            console.log(token)
 
             return {
                 ...user._doc,
