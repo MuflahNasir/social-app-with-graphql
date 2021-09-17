@@ -6,6 +6,19 @@ module.exports = gql`
         body: String!
         createdAt: String!
         username: String!
+        comments: [Comments]!
+        likes: [likes]!
+    }
+    type Comments{
+        id: ID!,
+        body: String!
+        username: String!
+        createdAt: String!
+    }
+    type likes {
+        id: ID!
+        username: String!
+        createdAt: String!
     }
     type User {
         id: ID!
@@ -29,5 +42,8 @@ module.exports = gql`
         login(email: String!, password: String!): User! 
         createPost(body: String!): Post!
         deletePost(postId: ID!): String!
+        createComment(postId: String!, body: String!): Post!
+        deleteComment(postId: String!, commentId: String!): Post!
+        likePost(postId: String!): Post!
     }
 `
