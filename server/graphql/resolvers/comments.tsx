@@ -1,7 +1,7 @@
 export {}
 const Post = require("../../models/Post")
 const checkAuth = require("../../utils/check_auth")
-const {UserInputError} = require("apollo-server")
+const {UserInputError, AuthenticationError} = require("apollo-server")
 
 type ICreatePost = {
     postId: String,
